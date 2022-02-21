@@ -31,9 +31,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     if(args.system.lower() == "linux"):
-        data = json.load(open('dbLinux.json'))
-        jtopy=json.dumps(data)
-        db=json.loads(jtopy)
+        db = json.loads(json.dumps(json.load(open('dbLinux.json'))))
         for revshell in db:
             print(f"""{revshell["uniqueID"]} > {revshell["name"]}""")
 
