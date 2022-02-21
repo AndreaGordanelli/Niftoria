@@ -30,10 +30,10 @@ if __name__ == "__main__":
     print(f"{title} Attacking on {args.system}")
     args = parser.parse_args()
     
-    if(args.system == "linux"):
+    if(args.system.lower() == "linux"):
         data = json.load(open('dbLinux.json'))
         jtopy=json.dumps(data)
         db=json.loads(jtopy)
         for revshell in db:
-            print(f"{revshell["uniqueID"]} {revshell["name"]}")
+            print(f"""{revshell["uniqueID"]} > {revshell["name"]}""")
 

@@ -16,7 +16,7 @@
     },
     {
         "name": "C",
-        "UniqueID": 3,
+        "uniqueID": 3,
         "description": "C Reverse Shell",
         "reverseShell": "",
         "listener": "nc -u -lvp ATTACKER_PORT"
