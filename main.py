@@ -33,5 +33,5 @@ if __name__ == "__main__":
     if(args.system.lower() == "linux"):
         db = json.loads(json.dumps(json.load(open('dbLinux.json'))))
         for revshell in db:
-            print(f"""{revshell["uniqueID"]} > {revshell["name"]}""")
+            print(f'''{revshell["uniqueID"]} > {revshell["name"]}''')
 
