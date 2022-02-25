@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+#https://ozzmaker.com/add-colour-to-text-in-python/
+#TODO: add colour
 import argparse
 import json
 
