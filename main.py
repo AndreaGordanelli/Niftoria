@@ -2,7 +2,7 @@
 import argparse
 import json
 
-'''
+
 title = """\
  ███▄    █  ██▓  █████▒▄▄▄█████▓ ▒█████   ██▀███   ██▓ ▄▄▄      
  ██ ▀█   █ ▓██▒▓██   ▒ ▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒▓██▒▒████▄    
@@ -12,11 +12,9 @@ title = """\
 ░ ▒░   ▒ ▒ ░▓   ▒ ░      ▒ ░░   ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░▓   ▒▒   ▓▒█░
 ░ ░░   ░ ▒░ ▒ ░ ░          ░      ░ ▒ ▒░   ░▒ ░ ▒░ ▒ ░  ▒   ▒▒ ░
    ░   ░ ░  ▒ ░ ░ ░      ░      ░ ░ ░ ▒    ░░   ░  ▒ ░  ░   ▒   
-         ░  ░                       ░ ░     ░      ░        ░  ░
-                                                                
+         ░  ░                       ░ ░     ░      ░        ░  ░                                                              
 """
-'''
-title = "Niftoria"
+#title = "Niftoria"
 # Initialize parser
 parser = argparse.ArgumentParser()
 parser.add_argument("-H", "--host", required=True, type=str, help = "Attacking IP")
