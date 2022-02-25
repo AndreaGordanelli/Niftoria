@@ -27,7 +27,7 @@ args = parser.parse_args()
 
 
 if __name__ == "__main__":
-    print(f"{title} Attacking on {args.system}")
+    print(f"{title}\n\nIP: {args.host}\nPort: {args.port}\nOS: {args.system}\n")
     args = parser.parse_args()
     
     if(args.system.lower() == "linux"):
