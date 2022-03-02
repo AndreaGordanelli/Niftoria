@@ -3,7 +3,7 @@
 #TODO: add colour
 import argparse
 import json
-
+import os
 
 title = """\
  ███▄    █  ██▓  █████▒▄▄▄█████▓ ▒█████   ██▀███   ██▓ ▄▄▄      
@@ -25,15 +25,12 @@ parser.add_argument("-OS", "--system", required=True, type=str, help = "Victim O
 parser.parse_args()
 args = parser.parse_args()
 
-
 if __name__ == "__main__":
     print(f"{title}\n\nIP: {args.host}\nPort: {args.port}\nOS: {args.system}\n")
-    args = parser.parse_args()
-    
     if(args.system.lower() == "linux"):
         db = json.loads(json.dumps(json.load(open('dbLinux.json'))))
         for revshell in db:
-            print(f'''{revshell["uniqueID"]} > {revshell["name"]}''')
+            print(f'''[{revshell["uniqueID"]}] -> {revshell["name"]}''')
 
         choice  = int(input("> "))
         if choice <= len(db):
