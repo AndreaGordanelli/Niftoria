@@ -39,6 +39,8 @@ if __name__ == "__main__":
         if choice <= len(db):
             for revshell in db:
                 if choice == revshell["uniqueID"]:
-                    print(f'\nReverse shell:\n{revshell["reverseShell"].replace("ATTACKER_IP", str(args.host)).replace("ATTACKER_PORT", str(args.port))}\nListener:\n{revshell["listener"].replace("ATTACKER_PORT", str(args.port))}\n')
+                    if(revshell["isFile"] == False):
+                        print(f'\nReverse shell:\n{revshell["reverseShell"].replace("ATTACKER_IP", str(args.host)).replace("ATTACKER_PORT", str(args.port))}\nListener:\n{revshell["listener"].replace("ATTACKER_PORT", str(args.port))}\n')
+                    else: print("Searching file...")
         else: print("Insert a valid number")
 

