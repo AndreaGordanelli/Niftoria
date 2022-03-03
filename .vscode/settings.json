@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "revShell.c": "c"
+        "revShell.c": "c",
+        "revShell.C": "cpp"
     }
 }

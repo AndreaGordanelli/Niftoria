@@ -4,6 +4,7 @@
 import argparse
 import json
 import os
+from datetime import datetime
 
 title = """\
  ███▄    █  ██▓  █████▒▄▄▄█████▓ ▒█████   ██▀███   ██▓ ▄▄▄      
@@ -38,6 +39,13 @@ if __name__ == "__main__":
                 if choice == revshell["uniqueID"]:
                     if(revshell["isFile"] == False):
                         print(f'\nReverse shell:\n{revshell["reverseShell"].replace("ATTACKER_IP", str(args.host)).replace("ATTACKER_PORT", str(args.port))}\nListener:\n{revshell["listener"].replace("ATTACKER_PORT", str(args.port))}\n')
-                    else: print("Searching file...")
+                    else: 
+                        rev = open(revshell['path'], "r")
+                        today = datetime.today()
+                        nameFiletmp = today.strftime("%d/%m/%Y-%H:%M:%S")
+                        nameFile = input(f'Save file as: (default name is {nameFiletmp}: ')
+                        nameFile = nameFile if nameFile else nameFiletmp
+                        print(nameFile)
+                        #print(rev.read())
         else: print("Insert a valid number")
 
