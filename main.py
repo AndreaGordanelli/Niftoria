@@ -17,12 +17,11 @@ title = """\
    ░   ░ ░  ▒ ░ ░ ░      ░      ░ ░ ░ ▒    ░░   ░  ▒ ░  ░   ▒   
          ░  ░                       ░ ░     ░      ░        ░  ░                                                              
 """
-#title = "Niftoria"
 # Initialize parser
 parser = argparse.ArgumentParser()
-parser.add_argument("-H", "--host", required=True, type=str, help = "Attacking IP")
-parser.add_argument("-P", "--port", required=True, type=int, help = "Attacking port")
-parser.add_argument("-OS", "--system", required=True, type=str, help = "Victim OS (linux, windows, macos)")
+parser.add_argument("-H", "--host", required=True, type=str, help = "Attacking IP (ex: 10.10.10.10")
+parser.add_argument("-P", "--port", required=True, type=int, help = "Attacking port (ex: 4444) ")
+parser.add_argument("-OS", "--system", required=True, type=str, help = "Victim OS (ex: linux, windows, macos)")
 parser.parse_args()
 args = parser.parse_args()
 
@@ -43,10 +42,14 @@ if __name__ == "__main__":
                         rev = open(revshell['path'], "r")
                         today = datetime.today()
                         nameFiletmp = today.strftime("%d_%m_%Y_%H:%M:%S")
-                        nameFile = input(f'Save file as: (default name is {nameFiletmp}: ')
+                        nameFile = input(f'Save file as: (default is {nameFiletmp}{revshell["extension"]}): ')
                         nameFile = nameFile if nameFile else nameFiletmp
-                        with open(f'revShellOutput/{nameFile}{revshell["extension"]}', 'w+') as file:
+                        path = f'revShellOutput/{nameFile}{revshell["extension"]}'
+                        with open(path, 'w+') as file:
                             print(rev.read().replace("ATTACKER_IP", str(args.host)).replace("ATTACKER_PORT", str(args.port)), file=file)
-
+                        if os.path.isfile(path):
+                            print (f"File created!\nPath: {os.path.abspath(path)}")
+                        else: print("Error while creating/writing file")
         else: print("Insert a valid number")
+
 
