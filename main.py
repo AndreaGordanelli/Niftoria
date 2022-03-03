@@ -5,7 +5,7 @@ import argparse
 import json
 import os
 from datetime import datetime
-
+import os.path
 title = """\
  ███▄    █  ██▓  █████▒▄▄▄█████▓ ▒█████   ██▀███   ██▓ ▄▄▄      
  ██ ▀█   █ ▓██▒▓██   ▒ ▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒▓██▒▒████▄    
@@ -29,7 +29,7 @@ args = parser.parse_args()
 if __name__ == "__main__":
     print(f"{title}\n\nIP: {args.host}\nPort: {args.port}\nOS: {args.system}\n")
     if(args.system.lower() == "linux"):
-        db = json.loads(json.dumps(json.load(open('dbLinux.json'))))
+        db = json.loads(json.dumps(json.load(open('db/dbLinux.json'))))
         for revshell in db:
             print(f'''[{revshell["uniqueID"]}] -> {revshell["name"]}''')
 
@@ -42,10 +42,11 @@ if __name__ == "__main__":
                     else: 
                         rev = open(revshell['path'], "r")
                         today = datetime.today()
-                        nameFiletmp = today.strftime("%d/%m/%Y-%H:%M:%S")
+                        nameFiletmp = today.strftime("%d_%m_%Y_%H:%M:%S")
                         nameFile = input(f'Save file as: (default name is {nameFiletmp}: ')
                         nameFile = nameFile if nameFile else nameFiletmp
-                        print(nameFile)
-                        #print(rev.read())
+                        with open(f'revShellOutput/{nameFile}{revshell["extension"]}', 'w+') as file:
+                            print(rev.read().replace("ATTACKER_IP", str(args.host)).replace("ATTACKER_PORT", str(args.port)), file=file)
+
         else: print("Insert a valid number")
 

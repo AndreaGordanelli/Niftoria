@@ -51,6 +51,7 @@
         "reverseShell": "",
         "listener": "nc -u -lvp ATTACKER_PORT",
         "isFile": true,
-        "path": "revShell/revShell.c"
+        "path": "revShell/revShell.c",
+        "extension":".c"
       }
   ]
