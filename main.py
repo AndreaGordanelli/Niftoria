@@ -27,15 +27,31 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     print(f"{title}\n\nIP: {args.host}\nPort: {args.port}\nOS: {args.system}\n")
+    #Check revShellOutput dir
     if(os.path.isdir('revShellOutput')):
-        print("\033[92mReverse shell Dir -> \u2713 \033[0m")
+        print("\033[92mReverse shell Dir [\u2713] \033[0m")
     else: 
         os.makedirs('revShellOutput')
-        print("\033[92mReverse shell Dir -> Created \033[0m")
+        print("\033[92mReverse shell Dir [Created] \033[0m")
+    #Check dbLinux
+    if(os.path.isfile('db/dbLinux.json')):
+        print("\033[92mLinux Reverse Shell Database [\u2713] \033[0m")
+    else: 
+        print("\033[91mLinux Reverse Shell Database [\u2717] \033[0m")
+    #Check dbMacOS
+    if(os.path.isfile('db/dbMacOS.json')):
+        print("\033[92mMacOS Reverse Shell Database [\u2713] \033[0m")
+    else: 
+        print("\033[91mMacOS Reverse Shell Database [\u2717] \033[0m")
+    #Check dbWindows
+    if(os.path.isfile('db/dbWindows.json')):
+        print("\033[92mWindows Reverse Shell Database [\u2713] \033[0m")
+    else: 
+        print("\033[91mWindows Reverse Shell Database [\u2717] \033[0m")
 
     if(args.system.lower() == "linux"):
         db = json.loads(json.dumps(json.load(open('db/dbLinux.json'))))
-        print("[0] -> Exit")
+        print("\n[0] -> Exit")
         for revshell in db:
             print(f'''[{revshell["uniqueID"]}] -> {revshell["name"]}''')
 
