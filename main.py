@@ -27,8 +27,15 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     print(f"{title}\n\nIP: {args.host}\nPort: {args.port}\nOS: {args.system}\n")
+    if(os.path.isdir('revShellOutput')):
+        print("\033[92mReverse shell Dir -> \u2713 \033[0m")
+    else: 
+        os.makedirs('revShellOutput')
+        print("\033[92mReverse shell Dir -> Created \033[0m")
+
     if(args.system.lower() == "linux"):
         db = json.loads(json.dumps(json.load(open('db/dbLinux.json'))))
+        print("[0] -> Exit")
         for revshell in db:
             print(f'''[{revshell["uniqueID"]}] -> {revshell["name"]}''')
 
