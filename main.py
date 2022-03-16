@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-#https://ozzmaker.com/add-colour-to-text-in-python/
-#TODO: add colour
 import argparse
 import json
 import os
@@ -28,6 +26,7 @@ args = parser.parse_args()
 if __name__ == "__main__":
     print(f"{title}\n\nIP: {args.host}\nPort: {args.port}\nOS: {args.system}\n")
     #Check revShellOutput dir
+    dbLinux, dbMacOS, dbWindows = True, True, True
     if(os.path.isdir('revShellOutput')):
         print("\033[92mReverse shell Dir [\u2713] \033[0m")
     else: 
@@ -37,17 +36,23 @@ if __name__ == "__main__":
     if(os.path.isfile('db/dbLinux.json')):
         print("\033[92mLinux Reverse Shell Database [\u2713] \033[0m")
     else: 
-        print("\033[91mLinux Reverse Shell Database [\u2717] \033[0m")
+        print("\033[93mLinux Reverse Shell Database [\u2717] \033[0m")
+        dbLinux = False
     #Check dbMacOS
     if(os.path.isfile('db/dbMacOS.json')):
         print("\033[92mMacOS Reverse Shell Database [\u2713] \033[0m")
     else: 
-        print("\033[91mMacOS Reverse Shell Database [\u2717] \033[0m")
+        print("\033[93mMacOS Reverse Shell Database [\u2717] \033[0m")
+        dbMacOS = False
     #Check dbWindows
     if(os.path.isfile('db/dbWindows.json')):
         print("\033[92mWindows Reverse Shell Database [\u2713] \033[0m")
     else: 
-        print("\033[91mWindows Reverse Shell Database [\u2717] \033[0m")
+        print("\033[93mWindows Reverse Shell Database [\u2717] \033[0m")
+        dbWindows = False
+    if(not dbLinux or not dbWindows or not dbMacOS):
+        print("\n\033[91m\033[1mMissing database\033[0m")
+        exit()
 
     if(args.system.lower() == "linux"):
         db = json.loads(json.dumps(json.load(open('db/dbLinux.json'))))
