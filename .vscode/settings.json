@@ -3,5 +3,6 @@
         "*.c": "c",
         "revShell.c": "c",
         "revShell.C": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
