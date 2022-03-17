@@ -73,5 +73,15 @@
         "isFile": true,
         "path": "revShell/revShell.js",
         "extension":".js"
+      },
+      {
+        "name": "Haskell",
+        "uniqueID": 9,
+        "description": "Haskell Reverse Shell",
+        "reverseShell": "",
+        "listener": "nc -u -lvp ATTACKER_PORT",
+        "isFile": true,
+        "path": "revShell/revShell.lhs",
+        "extension":".lhs"
       }
   ]
