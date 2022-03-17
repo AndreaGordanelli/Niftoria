@@ -54,8 +54,8 @@ if __name__ == "__main__":
         print("\n\033[91m\033[1mMissing database\033[0m")
         exit()
 
-    if(args.system.lower() == "linux"):
-        db = json.loads(json.dumps(json.load(open('db/dbLinux.json'))))
+    if(args.system):
+        db = json.loads(json.dumps(json.load(open(f'db/db{args.system.lower().capitalize()}.json'))))
         print("\n[0] -> Exit")
         for revshell in db:
             print(f'''[{revshell["uniqueID"]}] -> {revshell["name"]}''')
