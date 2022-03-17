@@ -53,5 +53,25 @@
         "isFile": true,
         "path": "revShell/revShell.c",
         "extension":".c"
+      },
+      {
+        "name": "C#",
+        "uniqueID": 7,
+        "description": "C# Reverse Shell",
+        "reverseShell": "",
+        "listener": "nc -u -lvp ATTACKER_PORT",
+        "isFile": true,
+        "path": "revShell/revShell.cs",
+        "extension":".cs"
+      },
+      {
+        "name": "JavaScript",
+        "uniqueID": 8,
+        "description": "JavaScript Reverse Shell",
+        "reverseShell": "",
+        "listener": "nc -u -lvp ATTACKER_PORT",
+        "isFile": true,
+        "path": "revShell/revShell.js",
+        "extension":".js"
       }
   ]

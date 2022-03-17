@@ -1,5 +1,7 @@
 {
     "files.associations": {
+        "*.c": "c",
         "revShell.c": "c",
+        "revShell.C": "cpp"
     }
 }
