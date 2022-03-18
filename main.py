@@ -58,7 +58,7 @@ if __name__ == "__main__":
         db = json.loads(json.dumps(json.load(open(f'db/db{args.system.lower().capitalize()}.json'))))
         print("\n[0] -> Exit")
         for revshell in db:
-            print(f'''[{revshell["uniqueID"]}] -> {revshell["name"]}''')
+            print(f'''[{revshell["uniqueID"]}] -> {revshell["name"]} {"(File)" if(revshell["isFile"])else "(Command)"}''')
 
         choice  = int(input("> "))
         if choice <= len(db):
