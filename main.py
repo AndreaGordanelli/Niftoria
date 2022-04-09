@@ -52,13 +52,13 @@ if __name__ == "__main__":
         dbWindows = False
     if(not dbLinux or not dbWindows or not dbMacOS):
         print("\n\033[91m\033[1mMissing database\033[0m")
-        exit()
+        sys.exit()
 
     if(args.system):
         db = json.loads(json.dumps(json.load(open(f'db/db{args.system.lower().capitalize()}.json'))))
         print("\n[0] -> Exit")
         for revshell in db:
-            print(f'''[{revshell["uniqueID"]}] -> {revshell["name"]} {"(File)" if(revshell["isFile"])else "(Command)"}''')
+            print(f'''[{revshell["uniqueID"]}] -> {revshell["name"]} {"(File)" if(revshell["isFile"])else "(Bash)"}''')
 
         choice  = int(input("> "))
         if choice <= len(db):
@@ -76,8 +76,9 @@ if __name__ == "__main__":
                         with open(path, 'w+') as file:
                             print(rev.read().replace("ATTACKER_IP", str(args.host)).replace("ATTACKER_PORT", str(args.port)), file=file)
                         if os.path.isfile(path):
-                            print (f"File created!\nPath: {os.path.abspath(path)}")
+                            print (f"\033[92m\033[1mFile created!\033[0m\nPath: {os.path.abspath(path)}")
                         else: print("Error while creating/writing file")
+                        rev.close()
         else: print("Insert a valid number")
 
 
